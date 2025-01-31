@@ -1,0 +1,55 @@
+<html>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .grid-container {
+      display: grid;
+      /* Try to "Never overflow viewport" Reference: https://blog.logrocket.com/how-to-prevent-overflow-scrolling-css/#:~:text=Max%20viewport%20width,-Viewport%20width%2C%20also&text=To%20fix%20this%20problem%2C%20avoid,width%20of%20the%20child%20container. */
+      grid-template-columns: repeat(3, 33.3%);
+      grid-template-rows: repeat(4, 25%);
+      gap: 15px;
+    }
+    .grid-container :hover {
+      box-shadow: 2px 2px 4px rgb(181, 181, 181);
+    }
+    .grid-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 90px;
+      border: solid 2px #999;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 32px;
+      background-color: white;
+      transition: box-shadow 0.5s;
+    }
+    .grid-items :hover {
+      border: solid 3px #ff5722;
+      box-shadow: 2px 2px 4px rgb(181, 181, 181);
+    }
+    .special-zero {
+      grid-column: 2 / span 1;
+      grid-row: 4;
+    }
+  </style>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+      <div class="grid-item">7</div>
+      <div class="grid-item">8</div>
+      <div class="grid-item">9</div>
+      <div class="grid-item special-zero">0</div>
+    </div>
+  </body>
+</html>

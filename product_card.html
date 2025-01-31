@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <style>
+      .products-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .product-card {
+        width: 500px;
+        height: auto;
+        border: 4px solid gray;
+        background-color: lightgray;
+        box-shadow: 2px 2px 4px rgb(181, 181, 181);
+        transition: box-shadow 0.3s, border-color 0.3s;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .product-name {
+        font-weight: bold;
+        color: darkblue;
+        font-size: 30px;
+        text-align: center;
+      }
+      .price {
+        font-weight: bold;
+        color: green;
+        font-size: 25px;
+        text-align: right;
+        margin: 10px 0;
+      }
+      .description {
+        color: darkgray;
+        font-size: 16px;
+        text-align: justify;
+        margin: 20px 0;
+      }
+      .product-card:hover {
+        box-shadow: 2px 2px 4px rgb(0, 0, 0);
+        border-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="products-container">
+      <div class="product-card">
+        <div class="product-name">Wireless Headphones</div>
+        <div class="price">$99.99</div>
+        <div class="description">
+          Experience the freedom of wireless listening with our top-of-the-line
+          headphones. Enjoy high-quality sound and comfort for hours on end.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

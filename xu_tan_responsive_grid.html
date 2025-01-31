@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: lightgray;
+      }
+      .grid-container {
+        display: grid;
+        width: 400px;
+        height: 400px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+      }
+      .grid-item {
+        border-radius: 5px;
+        box-shadow: 2px 2px 4px rgb(181, 181, 181);
+        margin: 5px;
+      }
+      .grid-item:nth-child(odd) {
+        background: linear-gradient(lightblue, lightgreen);
+      }
+      .grid-item:nth-child(even) {
+        background: linear-gradient(red, lightpink);
+      }
+      .grid-item:hover {
+        transform: rotate(15deg) scale(1.1);
+        transition-duration: 0.4s;
+      }
+      @media (max-width: 600px), (aspect-ratio: 1/1) {
+        .grid-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+  </body>
+</html>
