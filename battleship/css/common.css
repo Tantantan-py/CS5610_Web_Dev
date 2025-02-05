@@ -45,13 +45,15 @@ h1 {
 
 label {
   cursor: pointer;
+  position: sticky;
+  right: 1rem;
 }
 
 nav {
   background-color: var(--toggled-menu-bg-color);
   height: 100vh;
   left: 50%;
-  position: fixed;
+  position: sticky;
   z-index: 1000; /* make sure the nav bar always stays in the same position */
   text-align: right;
   transform: translate(-50%, -50%) scale(0);
@@ -101,8 +103,8 @@ ul a:active {
     color: var(--nav-text-color);
     display: flex;
     height: auto;
-    left: auto;
-    position: relative;
+    right: 0;
+    position: sticky;
     transform: none;
     transition: none;
     top: auto;
