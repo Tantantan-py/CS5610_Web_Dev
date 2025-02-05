@@ -1,3 +1,11 @@
+/* Reference: 
+
+<Toggling Mobile Navigation Visibility with CSS: The Checkbox Hack>
+
+Link: https://dev.to/joxx/toggling-mobile-navigation-visibility-with-css-the-checkbox-hack-7ej
+
+https://codepen.io/joxx/pen/MWZZejp
+*/
 @import url(https://fonts.googleapis.com/css2?family=Rubik);
 
 :root {
@@ -7,44 +15,105 @@
   --secondary-bg-color: brown;
 }
 
+body {
+  color: var(--primary-text-color);
+  font-family: "Rubik", serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
 header {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
-  background-color: rgb(22, 32, 222);
-  padding: 15px;
-  position: relative;
+  padding: 1rem;
 }
 
-.logo img {
-  height: 50px;
+h1 {
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
 }
 
-/* Reference: 
+.logo {
+  padding-left: rem;
+}
 
-<Toggling Mobile Navigation Visibility with CSS: The Checkbox Hack>
-
-Link: https://dev.to/joxx/toggling-mobile-navigation-visibility-with-css-the-checkbox-hack-7ej */
-#memu-toggle {
+#menuToggle {
   display: none;
 }
+
 label {
   cursor: pointer;
 }
 
-.navbar {
-  display: flex;
+nav {
+  background-color: var(--primary-bg-color);
+  color: var(--secondary-text-color);
+  height: 100vh;
+  left: 50%;
+  position: absolute;
+  text-align: right;
+  transform: translate(-50%, -50%) scale(0);
+  top: 50%;
+  width: 100vw;
 }
 
-@media (max-width: 600px) {
-  .navbar {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: #333;
-    flex-direction: column;
-    align-items: center;
+nav label {
+  line-height: 3;
+  margin-right: 1rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding-right: 1rem;
+  text-align: center;
+}
+
+ul a:link,
+ul a:visited,
+ul a:hover,
+ul a:active {
+  color: var(--secondary-text-color);
+}
+
+#menuToggle:checked + label + nav {
+  transform: translate(-50%, -50%) scale(1);
+  transition: 0.3s;
+}
+
+@media (min-width: 700px) {
+  header > label,
+  nav label {
     display: none;
+  }
+
+  nav {
+    background-color: transparent;
+    color: var(--primary-text-color);
+    display: flex;
+    height: auto;
+    left: auto;
+    position: relative;
+    transform: none;
+    transition: none;
+    top: auto;
+    width: auto;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  ul li {
+    margin-left: 1rem;
+  }
+
+  ul a:link,
+  ul a:visited,
+  ul a:hover,
+  ul a:active {
+    color: var(--primary-text-color);
   }
 }
