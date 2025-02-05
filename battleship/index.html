@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Play Battleship</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="css/common.css" />
   </head>
   <body>
     <header>
@@ -12,12 +11,19 @@
         <a href="/"><img src="/assets/images/logo.png" alt="Logo" /></a>
       </div>
 
+      <!-- Reference: Toggling Mobile Navigation Visibility with CSS: The Checkbox Hack
+      
+      Link: https://dev.to/joxx/toggling-mobile-navigation-visibility-with-css-the-checkbox-hack-7ej -->
+
+      <input type="checkbox" id="menuToggle" />
+      <label for="menuToggle">☰ Menu</label>
+
       <nav class="navbar">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/pages/game.html">Game</a></li>
-          <li><a href="/pages/rules.html">Rules</a></li>
-          <li><a href="/pages/highscores.html">High Scores</a></li>
+          <li><a href="/pages/game.html">Play Game</a></li>
+          <li><a href="/pages/rules.html">Game Rules</a></li>
+          <li><a href="/pages/highscores.html">High Scores Rank</a></li>
         </ul>
       </nav>
     </header>

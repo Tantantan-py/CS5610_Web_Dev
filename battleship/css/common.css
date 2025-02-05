@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css2?family=Rubik);
+
+:root {
+  --primary-text-color: #222;
+  --secondary-text-color: #fff;
+  --primary-bg-color: #222;
+  --secondary-bg-color: brown;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(22, 32, 222);
+  padding: 15px;
+  position: relative;
+}
+
+.logo img {
+  height: 50px;
+}
+
+/* Reference: 
+
+<Toggling Mobile Navigation Visibility with CSS: The Checkbox Hack>
+
+Link: https://dev.to/joxx/toggling-mobile-navigation-visibility-with-css-the-checkbox-hack-7ej */
+#memu-toggle {
+  display: none;
+}
+label {
+  cursor: pointer;
+}
+
+.navbar {
+  display: flex;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+}
