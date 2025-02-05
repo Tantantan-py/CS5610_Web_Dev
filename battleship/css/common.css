@@ -9,14 +9,12 @@ https://codepen.io/joxx/pen/MWZZejp
 @import url(https://fonts.googleapis.com/css2?family=Rubik);
 
 :root {
-  --primary-text-color: #222;
-  --secondary-text-color: #fff;
-  --primary-bg-color: #222;
-  --secondary-bg-color: brown;
+  --nav-text-color: rgb(0, 80, 155);
+  --nav-bg-color: #ff6666;
 }
 
 body {
-  color: var(--primary-text-color);
+  color: var(--nav-text-color);
   font-family: "Rubik", serif;
   font-size: 1.2rem;
   line-height: 1.6;
@@ -48,11 +46,11 @@ label {
 }
 
 nav {
-  background-color: var(--primary-bg-color);
-  color: var(--secondary-text-color);
+  background-color: var(--nav-bg-color);
   height: 100vh;
   left: 50%;
-  position: absolute;
+  position: fixed;
+  z-index: 1000; /* make sure the nav bar always stays in the same position */
   text-align: right;
   transform: translate(-50%, -50%) scale(0);
   top: 50%;
@@ -75,7 +73,9 @@ ul a:link,
 ul a:visited,
 ul a:hover,
 ul a:active {
-  color: var(--secondary-text-color);
+  color: var(--nav-text-color);
+  font: bold;
+  text-decoration: underline;
 }
 
 #menuToggle:checked + label + nav {
@@ -91,7 +91,7 @@ ul a:active {
 
   nav {
     background-color: transparent;
-    color: var(--primary-text-color);
+    color: var(--nav-text-color);
     display: flex;
     height: auto;
     left: auto;
@@ -104,6 +104,7 @@ ul a:active {
 
   ul {
     display: flex;
+    transition: color 0.3s ease;
   }
 
   ul li {
@@ -114,6 +115,6 @@ ul a:active {
   ul a:visited,
   ul a:hover,
   ul a:active {
-    color: var(--primary-text-color);
+    color: var(--nav-text-color);
   }
 }
