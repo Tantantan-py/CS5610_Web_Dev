@@ -1,0 +1,28 @@
+:root {
+  --main-bg-color: #fff;
+  --table-even-row-color: rgb(231, 249, 255);
+  --nav-header-color: rgb(178, 242, 255);
+  --table-border-color: #007f9b;
+}
+
+.highscores-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+.highscores-table th,
+.highscores-table td {
+  border: 1px solid var(--table-border-color);
+  padding: 10px;
+  text-align: center;
+}
+
+.highscores-table th {
+  background-color: var(--nav-header-color);
+  font-weight: bold;
+}
+
+.highscores-table tr:nth-child(even) {
+  background-color: var(--table-even-row-color);
+}

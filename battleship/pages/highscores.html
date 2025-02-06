@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>High Scores - Battleship Game</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/highscores.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="logo">
+        <a href="/"><img src="/assets/images/logo.png" alt="Logo" /></a>
+      </h1>
+
+      <input type="checkbox" id="menuToggle" />
+      <label for="menuToggle">☰ Menu</label>
+
+      <nav>
+        <label for="menuToggle">Close</label>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/game.html">Play Game</a></li>
+          <li><a href="/pages/rules.html">Game Rules</a></li>
+          <li>
+            <a href="/pages/highscores.html" class="active">High Scores Rank</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="home-main-container">
+      <h2>High Scores</h2>
+      <p>Check out our top players and see who’s ruling the seas!</p>
+      <table class="highscores-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Wins</th>
+            <th>Losses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>CaptainNemo</td>
+            <td>15</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>SeaWolf</td>
+            <td>12</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>AdmiralX</td>
+            <td>10</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>ShipMaster</td>
+            <td>9</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>BattleMage</td>
+            <td>8</td>
+            <td>10</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
