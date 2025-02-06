@@ -83,13 +83,11 @@ ul {
   text-align: center;
 }
 
-ul a:link,
-ul a:visited,
-ul a:hover,
 ul a:active {
   color: var(--nav-text-color);
   font: bold;
-  text-decoration: underline;
+  font-size: 1.1rem;
+  text-decoration: double underline;
 }
 
 #menuToggle:checked + label + nav {
