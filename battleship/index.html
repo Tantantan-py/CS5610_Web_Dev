@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Play Battleship</title>
     <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/home.css" />
   </head>
   <body>
     <header>
@@ -32,7 +33,21 @@
       </nav>
     </header>
 
-  </body>
-  Play New Game
+    <div class="home-main-container">
+      <p class="game-intro">
+        Welcome to Battleship Game! Strategically place your fleet, aim your
+        shots, and sink your opponent’s ships before they sink yours.
+      </p>
+      <p class="game-intro">
+        Test your tactical skills and challenge your friends in this classic
+        naval combat game.
+      </p>
+      <button
+        class="play-btn"
+        onclick="window.location.href='/pages/game.html';"
+      >
+        Play New Game
+      </button>
+    </div>
   </body>
 </html>

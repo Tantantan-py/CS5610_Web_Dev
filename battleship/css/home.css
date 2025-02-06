@@ -1,0 +1,39 @@
+:root {
+  --text-box-shadow-color: rgba(0, 0, 0, 0.5);
+  --btn-bg-color: #007bff;
+  --btn-bg-hover-color: #0056b3;
+  --btn-text-color: white;
+}
+
+.home-main-container {
+  display: grid;
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px var(--text-box-shadow-color);
+  margin: auto; /* Centers the container */
+}
+
+.game-intro {
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+
+.play-btn {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.play-btn:hover {
+  background-color: var(--btn-bg-hover-color);
+  color: var(--btn-text-color);
+  scale: 1.1;
+}
+
+/* what if I want use a grid container to manage different parts like two paragraphs and one button, to justify the space: */
