@@ -1,3 +1,7 @@
+.game-main-container {
+  padding-top: 3rem;
+}
+
 /* Ensure the timer stays below the sticky header */
 .timer-container {
   position: relative;
@@ -5,7 +9,7 @@
   height: 30px;
   background-color: #ccc;
   border-radius: 5px;
-  margin: 80px auto 10px;
+  margin: 40px auto 10px;
   overflow: hidden;
 }
 
@@ -42,7 +46,7 @@
 /* Restart button */
 button {
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 10px;
   padding: 10px 16px;
   font-size: 16px;
   cursor: pointer;
