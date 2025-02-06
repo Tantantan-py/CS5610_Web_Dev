@@ -1,8 +1,9 @@
 :root {
   --main-bg-color: #fff;
   --table-even-row-color: rgb(231, 249, 255);
-  --nav-header-color: rgb(178, 242, 255);
+  --table-header-color: rgb(178, 242, 255);
   --table-border-color: #007f9b;
+  --rank-color: darkblue;
 }
 
 .highscores-table {
@@ -19,10 +20,15 @@
 }
 
 .highscores-table th {
-  background-color: var(--nav-header-color);
+  background-color: var(--table-header-color);
   font-weight: bold;
 }
 
 .highscores-table tr:nth-child(even) {
   background-color: var(--table-even-row-color);
+}
+
+.highlight {
+  color: var(--rank-color);
+  font-weight: bold;
 }
