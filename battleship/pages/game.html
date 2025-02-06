@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/game.css" />
   </head>
   <body>
-    <!-- Header -->
+    <!-- Reusable Header -->
     <header>
       <h1 class="logo">
         <a href="/"><img src="/assets/images/logo.png" alt="Logo" /></a>
@@ -26,9 +26,17 @@
     </header>
 
     <main class="game-main-container">
+      <!-- Timer with a mock timestamp -->
+      <div id="timer">Time: 00:05:23</div>
+
+      <!-- Restart button (reloads the page without JavaScript) -->
+      <form action="/pages/game.html" method="get">
+        <button type="submit">Restart</button>
+      </form>
+
       <h2>Sample Player Board:</h2>
       <div class="game-board player-board">
-        <!-- 10x10 Grid (Modify as per need) -->
+        <!-- Example of a 10x10 Grid -->
         <div class="cell"></div>
         <div class="cell"></div>
         <div class="cell"></div>

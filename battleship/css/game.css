@@ -1,13 +1,41 @@
-/* Game board layout */
+/* General layout for game page */
+.game-main-container {
+  text-align: center;
+  margin: 20px;
+}
+
+/* Timer styling */
+#timer {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Restart button styling */
+button {
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Boards container */
 .game-board {
   display: grid;
-  grid-template-columns: repeat(10, 40px); /* 10 columns */
+  grid-template-columns: repeat(10, 40px); /* Change this for different sizes */
   gap: 3px;
   justify-content: center;
   margin: 20px auto;
 }
 
-/* General styling for cells */
+/* General styling for all grid cells */
 .cell {
   width: 40px;
   height: 40px;
@@ -17,10 +45,9 @@
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  cursor: pointer;
+  cursor: pointer; /* Ensures pointer cursor on hover */
 }
 
-/* Ship cells (black dots) */
 /* Ship cells (black dots) */
 .ship {
   background-color: lightblue;
@@ -29,12 +56,11 @@
   justify-content: center;
 }
 
-/* Ensure the black dot stays within the cell */
 .ship::before {
   content: "•";
-  font-size: 20px; /* Adjust size to prevent overflow */
+  font-size: 20px; /* Adjusted to prevent overflow */
   color: black;
-  line-height: 1; /* Prevents stretching */
+  line-height: 1;
 }
 
 /* Missed shots (red X) */
