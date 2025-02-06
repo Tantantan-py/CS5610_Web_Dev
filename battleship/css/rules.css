@@ -2,6 +2,8 @@
   --main-bg-color: #fff;
   --box-shadow-color: rgba(0, 0, 0, 0.1);
   --box-shadow-color: lightblue;
+  --table-even-row-color: lightblue;
+  --table-border-color: #007f9b;
 }
 
 main {
@@ -49,4 +51,27 @@ section#credits li {
 footer {
   width: 100%;
   text-align: center;
+}
+
+.type-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 5px var(--box-shadow-color);
+}
+
+.type-table th,
+.type-table td {
+  border: 1px solid var(--table-border-color);
+  padding: 10px;
+  text-align: center;
+}
+
+.type-table th {
+  background-color: var(--nav-bg-color);
+  font-weight: bold;
+}
+
+.type-table tr:nth-child(even) {
+  background-color: var(--table-even-row-color);
 }
