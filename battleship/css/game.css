@@ -1,15 +1,12 @@
 :root {
-  /* Timer Colors */
   --timer-container-bg: #ccc;
   --timer-bar-bg: red;
   --timer-text-color: white;
 
-  /* Button Colors */
   --button-bg: #007bff;
   --button-text-color: white;
   --button-hover-bg: #0056b3;
 
-  /* Board & Cell Colors */
   --cell-bg: lightblue;
   --ship-bg: lightblue;
   --ship-icon-color: black;
@@ -23,7 +20,6 @@
   padding-top: 3rem;
 }
 
-/* Ensure the timer stays below the sticky header */
 .timer-container {
   position: relative;
   width: 300px;
@@ -31,10 +27,9 @@
   background-color: var(--timer-container-bg);
   border-radius: 5px;
   margin: 40px auto 10px;
-  overflow: hidden;
+  overflow: hidden; /* Ensures the bar doesn't overflow the container */
 }
 
-/* Timer countdown bar */
 .timer-bar {
   width: 100%;
   height: 100%;
@@ -42,7 +37,6 @@
   animation: countdown 60s linear forwards;
 }
 
-/* Timer text */
 .timer-text {
   position: absolute;
   top: 50%;
@@ -64,7 +58,6 @@
   }
 }
 
-/* Restart button */
 button {
   display: block;
   margin: 0 auto 10px;
@@ -79,9 +72,9 @@ button {
 
 button:hover {
   background-color: var(--button-hover-bg);
+  transform: scale(1.1);
 }
 
-/* Game board styling */
 .game-board {
   display: grid;
   grid-template-columns: repeat(10, 40px);
@@ -103,7 +96,6 @@ button:hover {
   border: none;
 }
 
-/* Ships */
 .ship {
   background-color: var(--ship-bg);
   display: flex;
@@ -118,14 +110,12 @@ button:hover {
   line-height: 1;
 }
 
-/* Missed shots */
 .miss {
   background-color: var(--miss-bg);
   color: var(--miss-text-color);
   font-weight: bold;
 }
 
-/* Hits */
 .hit {
   background-color: var(--hit-bg);
   color: var(--hit-text-color);
