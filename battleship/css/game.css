@@ -1,3 +1,24 @@
+:root {
+  /* Timer Colors */
+  --timer-container-bg: #ccc;
+  --timer-bar-bg: red;
+  --timer-text-color: white;
+
+  /* Button Colors */
+  --button-bg: #007bff;
+  --button-text-color: white;
+  --button-hover-bg: #0056b3;
+
+  /* Board & Cell Colors */
+  --cell-bg: lightblue;
+  --ship-bg: lightblue;
+  --ship-icon-color: black;
+  --miss-bg: pink;
+  --miss-text-color: red;
+  --hit-bg: lightgreen;
+  --hit-text-color: darkgreen;
+}
+
 .game-main-container {
   padding-top: 3rem;
 }
@@ -7,7 +28,7 @@
   position: relative;
   width: 300px;
   height: 30px;
-  background-color: #ccc;
+  background-color: var(--timer-container-bg);
   border-radius: 5px;
   margin: 40px auto 10px;
   overflow: hidden;
@@ -17,7 +38,7 @@
 .timer-bar {
   width: 100%;
   height: 100%;
-  background-color: red;
+  background-color: var(--timer-bar-bg);
   animation: countdown 60s linear forwards;
 }
 
@@ -29,7 +50,7 @@
   transform: translate(-50%, -50%);
   font-size: 16px;
   font-weight: bold;
-  color: white;
+  color: var(--timer-text-color);
   white-space: nowrap;
 }
 
@@ -50,14 +71,14 @@ button {
   padding: 10px 16px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
   border: none;
   border-radius: 5px;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover-bg);
 }
 
 /* Game board styling */
@@ -73,8 +94,7 @@ button:hover {
 .cell {
   width: 40px;
   height: 40px;
-  border: 1px solid #333;
-  background-color: lightblue;
+  background-color: var(--cell-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,7 +105,7 @@ button:hover {
 
 /* Ships */
 .ship {
-  background-color: lightblue;
+  background-color: var(--ship-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,20 +114,20 @@ button:hover {
 .ship::before {
   content: "•";
   font-size: 20px;
-  color: black;
+  color: var(--ship-icon-color);
   line-height: 1;
 }
 
 /* Missed shots */
 .miss {
-  background-color: pink;
-  color: red;
+  background-color: var(--miss-bg);
+  color: var(--miss-text-color);
   font-weight: bold;
 }
 
 /* Hits */
 .hit {
-  background-color: lightgreen;
-  color: darkgreen;
+  background-color: var(--hit-bg);
+  color: var(--hit-text-color);
   font-weight: bold;
 }
