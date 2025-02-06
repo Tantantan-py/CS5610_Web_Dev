@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Play Battleship</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/game.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1 class="logo">
+        <a href="/"><img src="/assets/images/logo.png" alt="Logo" /></a>
+      </h1>
+      <input type="checkbox" id="menuToggle" />
+      <label for="menuToggle">☰ Menu</label>
+      <nav>
+        <label for="menuToggle">Close</label>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/game.html" class="active">Play Game</a></li>
+          <li><a href="/pages/rules.html">Game Rules</a></li>
+          <li><a href="/pages/highscores.html">High Scores Rank</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="game-main-container">
+      <h2>Sample Player Board:</h2>
+      <div class="game-board player-board">
+        <!-- 10x10 Grid (Modify as per need) -->
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell ship"></div>
+        <div class="cell ship"></div>
+        <div class="cell ship"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell miss">X</div>
+        <div class="cell"></div>
+
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell ship"></div>
+      </div>
+
+      <h2>Sample Enemy Board:</h2>
+      <div class="game-board enemy-board">
+        <div class="cell hit">✔</div>
+        <div class="cell hit">✔</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell miss">X</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell hit">✔</div>
+        <div class="cell miss">X</div>
+        <div class="cell"></div>
+      </div>
+    </main>
+  </body>
+</html>
