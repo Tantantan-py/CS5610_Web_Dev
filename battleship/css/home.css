@@ -42,7 +42,7 @@
 .play-btn:hover {
   background-color: var(--btn-bg-hover-color);
   color: var(--btn-text-color);
-  scale: 1.1;
+  transform: scale(1.1);
 }
 
 .rules-btn {
@@ -58,5 +58,5 @@
 .rules-btn:hover {
   background-color: var(--btn-bg-hover-color);
   color: var(--btn-text-color);
-  scale: 1.1;
+  transform: scale(1.1);
 }
