@@ -3,29 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <title>Play Battleship</title>
-    <link rel="stylesheet" href="/css/common.css" />
-    <link rel="stylesheet" href="/css/game.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/game.css" />
   </head>
   <body>
     <header>
       <h1 class="logo">
-        <a href="/"><img src="/assets/images/logo.png" alt="Logo" /></a>
+        <a href="../index.html"
+          ><img src="../assets/images/logo.png" alt="Logo"
+        /></a>
       </h1>
       <input type="checkbox" id="menuToggle" />
       <label for="menuToggle">☰ Menu</label>
       <nav>
         <label for="menuToggle">Close</label>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/pages/game.html" class="active">Play Game</a></li>
-          <li><a href="/pages/rules.html">Game Rules</a></li>
-          <li><a href="/pages/highscores.html">High Scores Rank</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="game.html" class="active">Play Game</a></li>
+          <li><a href="rules.html">Game Rules</a></li>
+          <li><a href="highscores.html">High Scores Rank</a></li>
         </ul>
       </nav>
     </header>
 
     <main class="game-main-container">
-      <form action="/pages/game.html" method="get">
+      <form action="game.html" method="get">
         <button type="submit">Restart</button>
       </form>
 
