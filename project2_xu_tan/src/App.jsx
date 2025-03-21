@@ -78,12 +78,10 @@ function App() {
         </nav>
       </header>
 
-      {/* Ensure full-width container below the header */}
       <div className="main-container">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/game/normal" element={<Game />} />
-          <Route path="/game/easy" element={<Game />} />
+          <Route path="/game/:mode" element={<Game />} />
           <Route path="/rules" element={<Rules />} />
           <Route path="/highscores" element={<HighScores />} />
         </Routes>

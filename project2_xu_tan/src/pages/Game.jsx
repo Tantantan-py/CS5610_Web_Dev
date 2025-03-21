@@ -14,13 +14,11 @@ function placeShips(board) {
   for (let size of SHIP_SIZES) {
     let placed = false;
     while (!placed) {
-      // Randomly choose horizontal (true) or vertical (false) orientation.
       const horizontal = Math.random() < 0.5;
       if (horizontal) {
         const row = Math.floor(Math.random() * 10);
         const col = Math.floor(Math.random() * (10 - size + 1));
         let canPlace = true;
-        // Check if all cells in this row segment are empty.
         for (let i = 0; i < size; i++) {
           if (newBoard[row * 10 + col + i] === "ship") {
             canPlace = false;
@@ -37,7 +35,6 @@ function placeShips(board) {
         const col = Math.floor(Math.random() * 10);
         const row = Math.floor(Math.random() * (10 - size + 1));
         let canPlace = true;
-        // Check if all cells in this column segment are empty.
         for (let i = 0; i < size; i++) {
           if (newBoard[(row + i) * 10 + col] === "ship") {
             canPlace = false;
@@ -57,7 +54,6 @@ function placeShips(board) {
 }
 
 function checkVictory(board) {
-  // A board is "cleared" when no cell still contains a ship.
   return board.indexOf("ship") === -1;
 }
 
@@ -71,8 +67,12 @@ function formatTime(seconds) {
 
 function Game() {
   const { mode } = useParams();
-  // gameMode will be "normal" or "easy" (free play). Default to normal if not provided.
+  // Debugging: log the mode from the URL
+  // console.log("Game mode from URL:", mode);
+  // gameMode will be "normal" or "easy" (free play).
   const gameMode = mode ? mode.toLowerCase() : "normal";
+  // Debugging: log the resolved gameMode
+  // console.log("Resolved gameMode:", gameMode);
 
   const [playerBoard, setPlayerBoard] = useState([]);
   const [enemyBoard, setEnemyBoard] = useState([]);
@@ -82,16 +82,33 @@ function Game() {
   const [winner, setWinner] = useState("");
   const [timeElapsed, setTimeElapsed] = useState(0);
 
-  // Initialize boards on component mount.
-  useEffect(() => {
+  const restartGame = () => {
+    setGameOver(false);
+    setWinner("");
+    setMessage("Your turn");
+    setCurrentTurn("player");
+    setTimeElapsed(0);
     const initPlayerBoard = placeShips(createEmptyBoard());
     const initEnemyBoard = placeShips(createEmptyBoard());
     setPlayerBoard(initPlayerBoard);
     setEnemyBoard(initEnemyBoard);
-  }, []);
+  };
 
-  // Check victory conditions whenever boards update.
+  // update title
   useEffect(() => {
+    restartGame();
+    document.title = `Battleship - ${
+      gameMode === "normal"
+        ? "Normal Game"
+        : gameMode === "easy"
+        ? "Free Play"
+        : "Play Game"
+    }`;
+  }, [gameMode]);
+
+  // Check victory
+  useEffect(() => {
+    if (playerBoard.length !== 100 || enemyBoard.length !== 100) return;
     if (checkVictory(enemyBoard)) {
       setWinner("Player");
       setGameOver(true);
@@ -101,7 +118,7 @@ function Game() {
     }
   }, [playerBoard, enemyBoard, gameMode]);
 
-  // Timer: update every second unless the game is over.
+  // Timer
   useEffect(() => {
     if (gameOver) return;
     const timerId = setInterval(() => {
@@ -112,7 +129,6 @@ function Game() {
 
   const handleEnemyCellClick = (index) => {
     if (gameOver || currentTurn !== "player") return;
-    // Prevent clicking a cell that's already been fired upon.
     if (enemyBoard[index] === "hit" || enemyBoard[index] === "miss") return;
 
     const newEnemyBoard = [...enemyBoard];
@@ -125,22 +141,20 @@ function Game() {
     }
     setEnemyBoard(newEnemyBoard);
 
-    if (gameMode === "normal") {
-      // Normal mode: switch turn to AI.
-      setCurrentTurn("ai");
-      setTimeout(aiTurn, 1000);
-    }
-    // In easy mode, no AI turn; remain on player's turn.
+    setCurrentTurn("ai");
+    setTimeout(aiTurn, 1000);
   };
 
   const aiTurn = () => {
     if (gameOver) return;
-    // Find available indices on the player's board.
     const availableIndices = [];
     playerBoard.forEach((cell, index) => {
-      if (cell !== "hit" && cell !== "miss") availableIndices.push(index);
+      if (cell !== "hit" && cell !== "miss") {
+        availableIndices.push(index);
+      }
     });
     if (availableIndices.length === 0) return;
+
     const randomIndex =
       availableIndices[Math.floor(Math.random() * availableIndices.length)];
     const newPlayerBoard = [...playerBoard];
@@ -155,36 +169,28 @@ function Game() {
     setCurrentTurn("player");
   };
 
-  const restartGame = () => {
-    setGameOver(false);
-    setWinner("");
-    setMessage("Your turn");
-    setCurrentTurn("player");
-    setTimeElapsed(0);
-    const initPlayerBoard = placeShips(createEmptyBoard());
-    const initEnemyBoard = placeShips(createEmptyBoard());
-    setPlayerBoard(initPlayerBoard);
-    setEnemyBoard(initEnemyBoard);
-  };
-
-  // Render helpers.
   const renderPlayerCell = (cell) => {
     if (cell === "hit") return "✔";
     if (cell === "miss") return "X";
-    if (cell === "ship") return "⛴️"; // Show your own ships.
+    if (cell === "ship") return "⛴️";
     return "";
   };
 
-  const renderEnemyCell = (cell) => {
-    if (cell === "hit") return "✔";
-    if (cell === "miss") return "X";
-    // In both game modes, enemy ships remain hidden until hit.
-    return "";
-  };
+  function getEnemyCellProps(cell) {
+    if (cell === "hit") return { display: "✔", className: "hit" };
+    if (cell === "miss") return { display: "X", className: "miss" };
+    if (cell === "ship") {
+      if (gameMode === "easy") {
+        return { display: "•", className: "ship" }; // show ship with a dot
+      } else {
+        return { display: "", className: "" }; // hide in normal mode
+      }
+    }
+    return { display: "", className: "" };
+  }
 
   return (
     <main className="game-main-container">
-      {/* Top header with Game Over message, Reset button, and Timer */}
       <div className="game-header">
         {gameOver && <h1>Game over! {winner} Won!</h1>}
         <button onClick={restartGame}>Reset</button>
@@ -193,33 +199,29 @@ function Game() {
 
       <p>{message}</p>
 
-      {/* In normal mode, display the player's board */}
-      {gameMode === "normal" && (
-        <>
-          <h2>Your Board</h2>
-          <div className="game-board player-board">
-            {playerBoard.map((cell, index) => (
-              <div key={index} className={`cell ${cell}`}>
-                {renderPlayerCell(cell)}
-              </div>
-            ))}
-          </div>
-        </>
-      )}
-
-      {/* Always show the enemy board.
-          In "easy" (free play) mode, add a note in the heading. */}
-      <h2>Enemy Board {gameMode === "easy" && "(Free Play)"}</h2>
-      <div className="game-board enemy-board">
-        {enemyBoard.map((cell, index) => (
-          <div
-            key={index}
-            className={`cell ${cell}`}
-            onClick={() => handleEnemyCellClick(index)}
-          >
-            {renderEnemyCell(cell)}
+      <h2>Your Board</h2>
+      <div className="game-board player-board">
+        {playerBoard.map((cell, index) => (
+          <div key={index} className={`cell ${cell}`}>
+            {renderPlayerCell(cell)}
           </div>
         ))}
+      </div>
+
+      <h2>Enemy Board {gameMode === "easy" && "(Easy Mode)"}</h2>
+      <div className="game-board enemy-board">
+        {enemyBoard.map((cell, index) => {
+          const { display, className } = getEnemyCellProps(cell);
+          return (
+            <div
+              key={index}
+              className={`cell ${className}`}
+              onClick={() => handleEnemyCellClick(index)}
+            >
+              {display}
+            </div>
+          );
+        })}
       </div>
     </main>
   );
