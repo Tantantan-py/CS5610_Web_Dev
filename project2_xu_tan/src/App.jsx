@@ -32,11 +32,16 @@ function HomePage() {
 }
 
 function App() {
+  const closeMenu = () => {
+    const menuToggle = document.getElementById("menuToggle");
+    if (menuToggle) menuToggle.checked = false; // Uncheck checkbox
+  };
+
   return (
     <div>
       <header>
         <h1 className="logo">
-          <Link to="/">
+          <Link to="/" onClick={closeMenu}>
             <img src={logo} alt="Logo" />
           </Link>
         </h1>
@@ -49,18 +54,24 @@ function App() {
           <label htmlFor="menuToggle">Close</label>
           <ul>
             <li>
-              <Link to="/" className="active">
+              <Link to="/" className="active" onClick={closeMenu}>
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/game">Play Game</Link>
+              <Link to="/game" onClick={closeMenu}>
+                Play Game
+              </Link>
             </li>
             <li>
-              <Link to="/rules">Game Rules</Link>
+              <Link to="/rules" onClick={closeMenu}>
+                Game Rules
+              </Link>
             </li>
             <li>
-              <Link to="/highscores">High Scores Rank</Link>
+              <Link to="/highscores" onClick={closeMenu}>
+                High Scores Rank
+              </Link>
             </li>
           </ul>
         </nav>

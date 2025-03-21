@@ -41,3 +41,14 @@ body,
   color: var(--rank-color);
   font-weight: bold;
 }
+
+.home-main-container p {
+  margin: 0 !important;
+  padding: 0;
+  padding-bottom: 1rem; /* Adjust as needed */
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
