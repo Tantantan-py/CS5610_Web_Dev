@@ -16,13 +16,14 @@ function HomePage() {
         Strategically place your fleet, aim your shots, and sink your opponent’s
         ships before they sink yours.
       </p>
-
       <p className="game-invite">
         Let's test your tactical skills in our naval combat game.
       </p>
-
-      <button className="play-btn" onClick={() => navigate("/game")}>
-        Play Game!
+      <button className="play-btn" onClick={() => navigate("/game/normal")}>
+        Normal Game
+      </button>
+      <button className="play-btn" onClick={() => navigate("/game/easy")}>
+        Free Play
       </button>
       <button className="rules-btn" onClick={() => navigate("/rules")}>
         New to the Game?
@@ -59,7 +60,7 @@ function App() {
               </Link>
             </li>
             <li>
-              <Link to="/game" onClick={closeMenu}>
+              <Link to="/game/normal" onClick={closeMenu}>
                 Play Game
               </Link>
             </li>
@@ -77,11 +78,12 @@ function App() {
         </nav>
       </header>
 
-      {/* ✅ Ensure full-width container below the header */}
+      {/* Ensure full-width container below the header */}
       <div className="main-container">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/game" element={<Game />} />
+          <Route path="/game/normal" element={<Game />} />
+          <Route path="/game/easy" element={<Game />} />
           <Route path="/rules" element={<Rules />} />
           <Route path="/highscores" element={<HighScores />} />
         </Routes>

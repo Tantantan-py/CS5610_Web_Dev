@@ -309,8 +309,8 @@ function Rules() {
 
       {/* New Play Game Button */}
       <div className="play-game-container">
-        <button className="play-btn" onClick={() => navigate("/game")}>
-          Let's Play Game!
+        <button className="play-btn" onClick={() => navigate("/game/easy")}>
+          Let's Try A Easy Free Play!
         </button>
       </div>
 
