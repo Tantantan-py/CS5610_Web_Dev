@@ -84,3 +84,21 @@ footer {
 .type-table tr:nth-child(even) {
   background-color: var(--table-even-row-color);
 }
+
+.play-btn {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  margin: auto;
+}
+
+.play-btn:hover {
+  background-color: var(--btn-bg-hover-color);
+  color: var(--btn-text-color);
+  transform: scale(1.1);
+}
