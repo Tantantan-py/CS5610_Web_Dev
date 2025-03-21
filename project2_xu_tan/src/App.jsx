@@ -1,16 +1,24 @@
-import Milliseconds from "./Milliseconds";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Game from "./pages/Game";
+import Rules from "./pages/Rules";
+import HighScores from "./pages/HighScores";
+import "./css/common.css";
 
 function App() {
-  const currentTime = new Date();
+  return (
+    <Router>
+      <Routes>
+        {/* Home page route */}
+        <Route path="/" element={<Home />} />
 
-  const greeting = (
-    <div>
-      Hello Home Page!
-      <Milliseconds />
-    </div>
+        {/* Other pages */}
+        <Route path="/game" element={<Game />} />
+        <Route path="/rules" element={<Rules />} />
+        <Route path="/highscores" element={<HighScores />} />
+      </Routes>
+    </Router>
   );
-
-  return greeting;
 }
 
 export default App;
